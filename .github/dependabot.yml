@@ -1,0 +1,62 @@
+# SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+# Proaktive Aktualisierung der Abhängigkeiten: Dependabot öffnet PRs für
+# veraltete Pakete, damit Schwachstellen zeitnah behoben werden.
+version: 2
+updates:
+  # Backend: Python-Pakete
+  - package-ecosystem: pip
+    directory: /backend
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "backend"]
+    commit-message:
+      prefix: "deps(backend)"
+    groups:
+      # Sicherheits-Updates immer einzeln, damit sie schnell durchlaufen.
+      # Routine-Updates gebündelt, um Review-Aufwand zu reduzieren.
+      runtime:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  # Frontend: npm
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "frontend"]
+    commit-message:
+      prefix: "deps(frontend)"
+    groups:
+      runtime:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  # GitHub Actions: Workflow-Versionen aktuell halten
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    labels: ["dependencies", "ci"]
+    commit-message:
+      prefix: "deps(ci)"
+
+  # Dockerfile: Base-Image-Updates
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    labels: ["dependencies", "image"]
+    commit-message:
+      prefix: "deps(image)"

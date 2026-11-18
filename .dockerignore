@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+.git
+.env
+*.psk
+*.db
+*.sqlite3
+data/
+backend/data
+backend/venv
+backend/__pycache__
+backend/**/__pycache__
+backend/.pytest_cache
+backend/tests
+backend/requirements-dev.txt
+**/*.pyc
+.pytest_cache
+docs
+sbom
+deploy
+.github
+
+node_modules
+frontend/tool/build/

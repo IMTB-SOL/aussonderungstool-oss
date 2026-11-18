@@ -1,0 +1,202 @@
+/*
+ * SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Farb- und Schrift-Tokens der Oberfläche.
+ * Die Token-Namen folgen den Farbrollen (Nachtblau, Akzent-Rot, Sand …) und
+ * werden auf semantische Aliase (fg, bg, accent) abgebildet. Für ein eigenes
+ * Erscheinungsbild genügt es, die Werte hier anzupassen.
+ */
+
+:root {
+  /* ============ BRAND PALETTE (HEX exact) ============ */
+  /* Primary */
+  --imtb-nachtblau:      #3C4058;   /* primary, titles, dark surfaces */
+
+  /* Accent reds */
+  --imtb-akzent-rot:     #E4523B;   /* highlights, call-outs, single accents */
+  --imtb-hell-rot:       #F29986;   /* secondary accent */
+  --imtb-dunkel-rot:     #C14731;   /* tertiary accent / visited link */
+
+  /* Sand / warm neutrals */
+  --imtb-sand:           #EBE1CE;   /* light surface, lt2 in theme */
+  --imtb-sand-dunkel:    #E2D8C7;   /* sand variant */
+  --imtb-sand-grau:      #A9A093;   /* dividers, subtle fills */
+
+  /* Cool greys */
+  --imtb-grau-hell:      #82849F;   /* secondary text */
+  --imtb-grau-mittel:    #767990;   /* tertiary text */
+  --imtb-anthrazit:      #212434;   /* body text on light ground */
+
+  /* Mono */
+  --imtb-weiss:          #FFFFFF;
+  --imtb-schwarz:        #000000;
+
+  /* ============ SEMANTIC ALIASES ============ */
+  --bg:                  var(--imtb-weiss);
+  --bg-soft:             var(--imtb-sand);
+  --bg-soft-2:           var(--imtb-sand-dunkel);
+  --bg-dark:             var(--imtb-nachtblau);
+
+  --fg:                  var(--imtb-anthrazit);          /* body on light */
+  --fg-on-dark:          var(--imtb-weiss);              /* body on dark */
+  --fg-muted:            var(--imtb-grau-hell);          /* secondary */
+  --fg-faint:            var(--imtb-grau-mittel);        /* tertiary */
+  --fg-display:          var(--imtb-nachtblau);          /* titles on light */
+
+  --accent:              var(--imtb-akzent-rot);
+  --accent-soft:         var(--imtb-hell-rot);
+  --accent-strong:       var(--imtb-dunkel-rot);
+
+  --divider:             var(--imtb-sand-grau);
+  --link:                var(--imtb-grau-mittel);
+  --link-visited:        var(--imtb-dunkel-rot);
+
+  /* ============ TYPOGRAPHY ============ */
+  /* Aptos is Microsoft's default; provide stack with web fallback. */
+  --font-sans:           "Aptos", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display:        "Aptos Display", "Aptos", "Inter", "Segoe UI", system-ui, sans-serif;
+  /* Aptos Black is used for slide titles in the template */
+  --font-display-heavy:  "Aptos Black", "Aptos Display", "Inter", system-ui, sans-serif;
+
+  /* Type scale — anchored to slide title 36pt / body 12pt from .potx,
+   * extended into a web scale (1.25 modular ratio from 14px base). */
+  --fs-12: 0.75rem;     /* 12px — fine print, footer */
+  --fs-14: 0.875rem;    /* 14px — caption */
+  --fs-16: 1rem;        /* 16px — body */
+  --fs-18: 1.125rem;    /* 18px — lead body */
+  --fs-22: 1.375rem;    /* 22px — H4 / large UI */
+  --fs-28: 1.75rem;     /* 28px — H3 */
+  --fs-36: 2.25rem;     /* 36px — slide subtitle, H2 */
+  --fs-48: 3rem;        /* 48px — H1 */
+  --fs-64: 4rem;        /* 64px — display */
+  --fs-96: 6rem;        /* 96px — hero numerals */
+
+  --lh-tight: 1.1;
+  --lh-snug:  1.25;
+  --lh-body:  1.5;
+  --lh-loose: 1.65;
+
+  --tracking-tight:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.02em;
+  --tracking-caps:    0.08em;
+
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-black:     900;
+
+  /* ============ SPACING (4px base) ============ */
+  --space-1: 0.25rem;   /* 4 */
+  --space-2: 0.5rem;    /* 8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96 */
+
+  /* ============ RADII ============ */
+  /* The template uses square corners almost exclusively. Radii reserved
+   * for product UI; default to 0 to match deck. */
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-3: 8px;
+  --radius-pill: 999px;
+
+  /* ============ ELEVATION ============ */
+  /* The deck has no shadows. Product UI elevation is subtle, anthrazit-tinted. */
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(33,36,52,.06);
+  --shadow-2: 0 4px 12px rgba(33,36,52,.08);
+  --shadow-3: 0 12px 32px rgba(33,36,52,.12);
+
+  /* ============ MOTION ============ */
+  /* Slide transition in template is a 700ms fade. */
+  --ease-standard: cubic-bezier(.2, .0, .0, 1);
+  --ease-emphasis: cubic-bezier(.2, .0, .0, 1.2);
+  --dur-fast: 120ms;
+  --dur-med:  240ms;
+  --dur-slow: 700ms;   /* matches deck fade */
+}
+
+/* ============ SEMANTIC TYPE RULES ============ */
+.h-display {
+  font-family: var(--font-display-heavy);
+  font-size: var(--fs-64);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-display);
+  font-weight: var(--fw-black);
+}
+.h1 {
+  font-family: var(--font-display-heavy);
+  font-size: var(--fs-48);
+  line-height: var(--lh-tight);
+  color: var(--fg-display);
+  font-weight: var(--fw-black);
+}
+.h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-36);
+  line-height: var(--lh-snug);
+  color: var(--fg-display);
+  font-weight: var(--fw-bold);
+}
+.h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-28);
+  line-height: var(--lh-snug);
+  color: var(--fg-display);
+  font-weight: var(--fw-semibold);
+}
+.h4 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-22);
+  line-height: var(--lh-snug);
+  color: var(--fg-display);
+  font-weight: var(--fw-semibold);
+}
+.lead {
+  font-family: var(--font-sans);
+  font-size: var(--fs-18);
+  line-height: var(--lh-body);
+  color: var(--fg);
+}
+.body, p {
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--lh-body);
+  color: var(--fg);
+}
+.caption {
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  line-height: var(--lh-snug);
+  color: var(--fg-muted);
+}
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  font-weight: var(--fw-semibold);
+}
+.fine {
+  font-family: var(--font-sans);
+  font-size: var(--fs-12);
+  color: var(--fg-faint);
+}
+
+/* On dark Nachtblau backgrounds */
+.on-dark .h1, .on-dark .h2, .on-dark .h3, .on-dark .h4,
+.on-dark .h-display { color: var(--fg-on-dark); }
+.on-dark .body, .on-dark p, .on-dark .lead { color: var(--fg-on-dark); }
+.on-dark .caption, .on-dark .eyebrow { color: rgba(255,255,255,.7); }

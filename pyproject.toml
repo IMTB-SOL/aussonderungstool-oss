@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["backend/venv", "vendor"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = [
+  "E501",   # Zeile zu lang — durch line-length=100 bereits begrenzt
+  "E402",   # Modulimporte nach load_dotenv() / konfiguriere_logging() — bewusstes Muster
+  "F841",   # Lokale Variable nicht verwendet — teils Wächterfunktionen (_hole_job), teils uninitalisierte Zähler
+]
+
+[tool.ruff.lint.per-file-ignores]
+"backend/tests/*" = ["F401", "F811"]

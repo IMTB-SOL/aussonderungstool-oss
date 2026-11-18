@@ -1,0 +1,16 @@
+Fremdschemata (xdomea-XML-Schemata und eingebundene Codelisten)
+
+Die so gekennzeichneten Dateien stammen nicht von den Urhebern dieses
+Projekts. Sie werden unverändert weitergegeben, damit XDOMEA-Nachrichten
+gegen die veröffentlichten Schemata validiert werden können.
+
+Die Dateien selbst enthalten keinen Lizenzvermerk. Dieses Projekt räumt an
+ihnen keine Rechte ein und stellt sie insbesondere nicht unter die
+EUPL-1.2. Es gelten die Nutzungsbedingungen der jeweiligen Herausgeber:
+
+- xdomea: Arbeitsgruppe xdomea des IT-Planungsrats, Betrieb durch die
+  Koordinierungsstelle für IT-Standards (KoSIT) — https://www.xoev.de/xdomea
+- Codelisten: UN/CEFACT, ISO, IANA sowie XÖV (KoSIT)
+
+Dieser Text ist ein Herkunfts- und Statushinweis, kein Lizenztext der
+Herausgeber.

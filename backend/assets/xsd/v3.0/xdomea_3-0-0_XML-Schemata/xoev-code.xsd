@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xoev-code="http://xoev.de/schemata/code/1_0" targetNamespace="http://xoev.de/schemata/code/1_0" version="1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:complexType name="Code">
+    <xs:annotation>
+      <xs:documentation>Der XÖV-Datentyp Code ermöglicht die Übermittlung von Werten, so genannter Codes, aus vordefinierten Codelisten.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:token" form="unqualified"/>
+      <xs:element name="name" minOccurs="0" type="xs:normalizedString" form="unqualified"/>
+    </xs:sequence>
+    <xs:attribute name="listURI" type="xs:anyURI" use="optional"/>
+    <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional"/>
+  </xs:complexType>
+</xs:schema>

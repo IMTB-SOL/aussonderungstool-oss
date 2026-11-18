@@ -1,0 +1,2834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xoev="www.deutschland-online.de/XOEV" xmlns:xdomea="http://www.xdomea.de/V2.1.0" targetNamespace="http://www.xdomea.de/V2.1.0" version="2.1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:simpleType name="AllgemeineRueckmeldungCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0000000">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Ausführung wurde erfolgreich beendet.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das DMS ist nicht verfügbar oder antwortet nicht in angemessener Zeit (Time-out).</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Verbindungsabbruch.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Kennung ist dem System nicht bekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Dem Benutzer bzw. der Rolle fehlen die erforderlichen Rechte zum Aufruf der Nachricht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Fachverfahrens ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID der Verwaltung ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>DMS-Session-ID ungültig bzw. nicht bekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die übergebene XML-Struktur entspricht nicht dem angegebenen Schema und ist nicht valide.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000009">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Nachricht bereits verarbeitet.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000010">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Stapellänge kleiner oder gleich 0.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000011">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Stapellänge größer als 1 in der Dialogverarbeitung unzulässig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000012">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Stapellänge kleiner als 1 in der Stapelverarbeitung unzulässig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000013">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Länge des Stapels stimmt nicht mit der Anzahl der Objekte im Stapel überein.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000014">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Stapel syntaktisch nicht korrekt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000015">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Übertragungsfehler.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000016">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Verzeichnis ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000017">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die URL ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000018">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datei kann nicht gefunden werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000019">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datenbanktabelle nicht zugreifbar.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000499">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Unbekannter Fehler</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000501">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Fachverfahren ist nicht verfügbar oder antwortet nicht in an-gemessener Zeit (Time-out).</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000502">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Verbindungsabbruch.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000503">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Kennung ist dem System nicht bekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000504">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Dem Benutzer fehlen die erforderlichen Rechte zum Aufruf der Nachricht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000505">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Fachverfahrens ist nicht bekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000506">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID der Verwaltung ist nicht bekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000507">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FV-Session-ID ungültig bzw. nicht bekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000508">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die übergebene XML-Struktur entspricht nicht dem angegebenen Schema und ist nicht valide.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000509">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Nachricht bereits verarbeitet.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000510">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Stapellänge kleiner oder gleich 0.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000511">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Länge des Stapels stimmt nicht mit der Anzahl der Objekte im Stapel überein.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000512">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Stapel syntaktisch nicht korrekt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000513">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Übertragungsfehler.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000514">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Verzeichnis ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000515">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die URL ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000516">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datei kann nicht gefunden werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0000999">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Unbekannter Fehler</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AnschriftstypCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Aktuelle Anschrift: Die aktuelle Anschrift, z.B. einer Organisation, einer Person.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Hauptsitz: Die Anschrift ist der Hauptsitz, z.B. einer Organisation, oder der Hauptwohnsitz einer Person.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Zweitsitz: Die Anschrift ist der Zweitsitz, z.B. einer Organisation, oder der Nebenwohnsitz einer Person.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AussonderungsartCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="A">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt ist archivwürdig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="B">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt ist zum Bewerten markiert.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt ist zum Vernichten markiert.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BeteiligungsstatusCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Schritt liegt in der Zukunft.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Schritt ist aktuell.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Schritt ist abgeschlossen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Schritt wurde übersprungen, jedoch nicht aus dem Geschäftsgang gelöscht. Der Schritt wird im Verlauf des Geschäftsgangs nicht mehr angesprochen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BewertungsvorschlagCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="A">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt ist archivwürdig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt ist zum Vernichten markiert.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DateiformatCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>bmp - Windows Bitmap</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>csv - Comma Separated Values</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>doc - Microsoft Word for Windows Document</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>doc - Microsoft Word for MS-DOS Document</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>doc - Microsoft Word for Macintosh Document</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>eml - Outlook Express Electronic Mail</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>htm - Hypertext Markup Language</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>html - Hypertext Markup Language</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="009">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>jpe - JPEG File Interchange Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="010">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>jpeg - JPEG File Interchange Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="011">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>jpg - JPEG File Interchange Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="012">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>msg - Microsoft Outlook Email Message</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="013">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>odp - OpenDocument Presentation Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="014">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ods - OpenDocument Spreadsheet Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="015">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>odt - OpenDocument Text Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="016">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>otp - OpenDocument Presentation Format Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="017">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ots - OpenDocument Spreadsheet Format Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="018">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>pdf - Portable Document Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="019">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>png - Portable Network Graphics</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="020">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ppt - Microsoft PowerPoint</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="021">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ps - PostScript</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="022">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>rtf - Rich Text Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="023">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>tif - Tagged Image File Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="024">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>tiff - Tagged Image File Format</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="025">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>wps - Microsoft Works for Windows</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="026">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xlc - Microsoft Excel Chart</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="027">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xlm - Microsoft Excel Macro</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="028">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xls - Binary Interchange File Format (BIFF) Worksheet</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="029">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xlw - Binary Interchange File Format (BIFF) Workbook</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="030">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xml - eXtensible Markup Language</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="031">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xsd - XML Schema Definition</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="032">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>dot - Microsoft Word Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="033">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>pot - Microsoft Powerpoint Design Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="034">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xlt - Mircosoft Excel Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="035">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>docx - Office Open XML Text</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="036">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xlsx - Office Open XML Spreadsheet</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="037">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>pptx - Office Open XML Presentation</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="038">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>dotx - Office Open XML Text Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="039">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>xltx - Office Open XML Spreadsheet Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="040">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>potx - Office Open XML Presentation Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="041">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>dtd - Document Type Definition</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="042">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>mpp - Microsoft Project</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="043">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ott - OpenDocument Text Format Template</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="044">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>pdf - Portable Document Format (Archival)</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="045">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>txt - Unicode Text File</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="100">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Sonstiges</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DatenaustauschartCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>freigegebenes Verzeichnis</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datenbanktabelle</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>WebDAV und http(s)</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DatentypCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>anyURI</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>base64Binary</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>boolean</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>byte</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>date</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>dateTime</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>decimal</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>double</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="009">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>duration</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="010">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ENTITIES</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="011">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ENTITY</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="012">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>float</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="013">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>gDay</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="014">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>gMonth</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="015">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>gMonthDay</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="016">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>gYear</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="017">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>gYearMonth</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="018">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>hexBinary</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="019">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ID</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="020">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>IDREF</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="021">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>IDREFS</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="022">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>int</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="023">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>integer</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="024">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>language</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="025">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>long</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="026">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Name</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="027">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>NCNAME</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="028">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>negativeInteger</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="029">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>NMTOKEN</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="030">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>NMTOKENS</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="031">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>nonNegativeInteger</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="032">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>nonPositiveInteger</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="033">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>normalizedString</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="034">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>NOTATION</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="035">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>positiveInteger</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="036">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>QName</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="037">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>short</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="038">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>string</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="039">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>time</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="040">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>token</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="041">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>unsignedByte</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="042">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>unsignedInt</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="043">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>unsignedLong</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="044">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>unsignedShort</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="045">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>anySimpleType</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="KommunikationsartCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>E-Mail</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Telefon Festnetz</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Telefon mobil</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Fax</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Instant Messenger</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Pager</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Homepage</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Institution E-Mail</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="009">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Institution Telefon Festnetz</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="010">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Institution Fax</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="011">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Institution Homepage</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="012">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Sonstige</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="KompressionsverfahrenCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ZIP v2.0</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Gnu ZIP (GZIP) v4.3 / Tape ARchive (TAR)</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="KonfigurationsparameterCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Transportweg</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datenaustauschart</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Ablageort</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP_Name</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP_Hostname</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP_Port</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP_Bind_DN</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP_Password</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP_Base_DN</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP_Searchfilter</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP_MaxResult</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>SQL_Name</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>SQL_Hostname</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>SQL_Datenbank</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>SQL_Tabelle</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>SQL_Benutzername</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>SQL_Passwort</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>SQL_Query</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_Name</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR1</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR2</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR3</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR4</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR5</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR6</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR7</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006009">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR8</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006010">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR9</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006011">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ADDR_ATTR10</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="007001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Standardablage</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="008001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>komprimierter Datenaustausch</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="008002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Kompressionsverfahren</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="KonfigurationsparameterGruppeCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Transportweg</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datenaustauschart</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Ablageort</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>LDAP-Adressverzeichnis</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>SQL-Server-Adressverzeichnis</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>unbekanntes Adressverzeichnis</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Standardablage</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>komprimierter Datenaustausch</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MediumCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Elektronisch: Das Schriftgutobjekt liegt ausschließlich in elektronischer Form vor.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Hybrid: Das Schriftgutobjekt liegt teilweise in elektronischer Form und teilweise als Papier vor.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Papier: Das Schriftgutobjekt liegt ausschließlich als Papier vor.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NachrichtentypCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0101">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Information.Information</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0102">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Information.EmpfangBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0201">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Geschaeftsgang.Geschaeftsgang</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0202">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Geschaeftsgang.EmpfangBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0301">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Aktenplan.Aktenplan</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0302">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Aktenplan.EmpfangBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0401">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Abgabe.Abgabe</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0402">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Abgabe.ImportBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0501">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Aussonderung.Anbieteverzeichnis</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0502">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Anbietung.Bewertungsverzeichnis</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0503">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Aussonderung.Aussonderung</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0504">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Aussonderung.AnbietungEmpfangBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0505">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Aussonderung.BewertungEmpfangBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0506">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Aussonderung.AussonderungImportBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0601">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.DokumentAktualisieren</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0602">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOAnsehen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0603">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOBearbeiten</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0604">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOErstellen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0605">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOAblegen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0606">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGODrucken</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0607">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.ProtokolleintragErstellen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0608">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOSuchen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0609">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.MetadatenAnlegen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0610">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.MetadatenAktualisieren</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0611">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.MetadatenAnsehen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0612">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.MetadatenLoeschen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0613">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOLoeschenMarkieren</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0614">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOLoeschmarkierungAufheben</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0615">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOEndgueltigLoeschen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0616">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOLoeschstatusAbfragen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0617">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOUngueltigKennzeichnen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0618">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.DatensatzLoeschen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0619">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.BenachrichtigungAbrufen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0620">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.VertretungAktivierenOderDeaktivieren</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0621">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.VertretungsstatusAbfragen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.ZustaendigkeitAendern</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0623">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.GesamtprotokollAblegen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0624">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SGOZDAVerfuegen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0625">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.SystemstatusAbfragen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0626">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.KonfigurationsparameterErstellen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0627">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.KonfigurationsparameterAktualisieren</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0628">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.KonfigurationsparameterAbrufen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0629">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.EmpfangBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0630">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.ImportBestaetigen</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0631">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>FVDaten.PrimaerdokumentExportieren</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SchriftgutobjekttypCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Akte</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Dokument</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Vorgang</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0601CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0601001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Dokuments im DMS ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0601002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Verzeichnis ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0601003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die URL ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0601004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datei kann nicht gefunden werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0601005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Es kann keine neue Version erstellt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0601006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0601007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0602CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0602001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Dokuments ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0602002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Dokument kann nicht geöffnet werden (bspw. ist zum Dokumenttyp keine Applikation registriert oder der Server hat keinen Zugriff auf den Client).</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0602003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Versionsnummer ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0603CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0603001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Dokuments ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0603002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Dokument kann nicht geöffnet werden (bspw. ist zum Dokumenttyp keine Applikation registriert).</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0603003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Versionsnummer ist ungültig</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0604CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0604001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Containerobjekts ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0604002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Schriftgutobjekttyp ist nicht definiert.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0604003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt kann nicht angelegt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0604004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Objekt kann nicht geöffnet werden (bspw. ist zum Dokumenttyp keine Applikation registriert).</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0604005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0604006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0604007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Beschreibung eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0605CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0605001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Containers ist im DMS unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0605002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Verzeichnis ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0605003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die URL ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0605004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datei kann nicht gefunden werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0605005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Datei kann im DMS nicht abgelegt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0605006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0605007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0605008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Beschreibung eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0606CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0606001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Objektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0606002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der angegebene Drucker existiert nicht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0606003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der angegebene Drucker ist nicht bereit.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0606004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Unterschriftgutobjekttyp existiert nicht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0606005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Druck ist fehlgeschlagen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0606006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Version des Dokuments existiert nicht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0607CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0607001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0607002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Protokolleintragsinformationen beinhalten ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0607003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Protokolleintrag kann nicht angelegt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0608CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0608001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Suchtyp ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0609CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0609001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Objektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0609002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name des Metadatums ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0609003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Beschreibung des Metadatums ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0609004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Datentyp des Metadatums existiert nicht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0609005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert des Metadatums ist ungültig/befindet sich außerhalb des Wertebereichs.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0609006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Metadatum kann nicht angelegt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0609007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Datentyp für das Metadatum wurde nicht angegeben.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0609008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert für das Metadatum wurde nicht angegeben.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0610CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0610001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Objektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0610002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name des Metadatums ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0610003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Beschreibung des Metadatums ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0610004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert des Metadatums ist ungültig/befindet sich außerhalb des Wertebereichs.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0610005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Metadatum kann nicht aktualisiert werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0610006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Datentyp des Metadatums weicht vom vorhandenen Datentyp ab.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0610007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert des Metadatums wurde nicht gesetzt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0611CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0611001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die UUID des Objektes ist ungültig/unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0611002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name des Metadatums ist ungültig/unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0611003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Metadatum kann nicht ausgelesen werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0611004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Beschreibung des Metadatums weicht von der vorhandenen Beschreibung ab.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0611005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Datentyp des Metadatums weicht von dem vorhandenen Daten-typ ab.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0611006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert des Metadatums weicht von dem vorhandenen Wert ab.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0612CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0612001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Objektes ist ungültig/unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0612002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name des Metadatums ist ungültig/unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0612003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Metadatum kann nicht gelöscht werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0612004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Beschreibung des Metadatums unterscheidet sich von der vorhandenen: Metadatum nicht gelöscht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0612005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Datentyp des Metadatums unterscheidet sich von dem vorhandenen: Metadatum nicht gelöscht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0612006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert des Metadatums unterscheidet sich von dem vorhandenen: Metadatum nicht gelöscht.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0613CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0613001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Schriftgutobjektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0613002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt kann nicht zum Löschen markiert werden (z. B. weil es zur Bearbeitung gesperrt ist).</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0614CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0614001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Schriftgutobjektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0614002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt ist nicht zum Löschen markiert.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0614003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Löschmarkierung kann nicht aufgehoben werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0615CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0615001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Schriftgutobjektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0615002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt kann nicht gelöscht werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0616CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0616001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Schriftgutobjektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0616002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Status kann nicht abgefragt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0617CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0617001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Objektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0617002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Schriftgutobjekt kann nicht als ungültig gekennzeichnet werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0618CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0618001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Datensatzes ist im DMS unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0618002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Mindestens ein Schriftgutobjekt kann nicht gelöscht werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0619CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0619001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Nachrichten können nicht abgefragt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0619002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Keine Nachricht vorhanden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0620CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0620001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Benutzer/Rolle des zu Vertretenden ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0620002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Benutzer/Rolle des Vertreters ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0620003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Vertretung ist bereits aktiviert.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0620004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Vertretung ist bereits deaktiviert.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0620005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Vertretung kann nicht aktiviert werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0620006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Vertretung kann nicht deaktiviert werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0621CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0621001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Benutzer/Rolle, für den/die der Status abgefragt werden soll, ist un-bekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0621002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Status kann nicht abgefragt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0622CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0622001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ID des Schriftgutobjektes nicht bekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Neu zuständiger/zuständige Benutzer/Rolle ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Bisher zuständiger/zuständige Benutzer/Rolle ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Kennzeichen der aufnehmenden Aktenplaneinheit ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ID der aufnehmenden Akte ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Kennzeichen der abgebenden Aktenplaneinheit ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ID der abgebenden Akte ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622008">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622009">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Beschreibung des Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622010">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert eines Metadatums enthält ungültige Zeichen.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0622011">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Zuständigkeitswechsel kann nicht durchgeführt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0623CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0623001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Schriftgutobjektes ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0623002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Das Verzeichnis ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0623003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die URL ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0623004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Protokoll als Dateikann nicht abgelegt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0623005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Protokoll als xdomea-Geschäftsgang kann nicht abgelegt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0623006">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Syntaxfehler in xdomea-Geschäftsgang-Daten.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0623007">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>HistorienProtokollinformationen konnten nicht angelegt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0624CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0624001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>ID des Schriftgutobjektes nicht bekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0624002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die zdA-Verfügung kann nicht durchgeführt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0625CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0625001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Systemstatus-ID ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0625002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Status kann nicht abgefragt werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0626CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0626001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name des Konfigurationsparameters ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0626002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert des Konfigurationsparameters ist ungültig/liegt außerhalb des definierten Wertebereichs.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0626003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Datentyp ist unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0627CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0627001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name des Konfigurationsparameters ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0627002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Wert des Konfigurationsparameters ist ungültig/liegt außerhalb des definierten Wertebereichs.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0627003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Konfigurationsparameter kann nicht aktualisiert werden (bspw. wegen fehlender Rechte).</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0627004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Typ des Konfigurationsparameters entspricht nicht dem aktuellen Typ des Konfigurationsparameters.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0628CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0628001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Name des Konfigurationsparameters ist ungültig/unbekannt.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0628002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Der Konfigurationsparameter kann nicht ausgelesen werden.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpezifischeFehlermeldung0631CodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0631001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die ID des Dokuments ist unbekannt/ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0631002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Die Versionsnummer ist ungültig.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TransportwegCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Web Service</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Austauschverzeichnis</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Austauschdatenbank</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VertraulichkeitsstufeCodeContentType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Geheim: Das Schriftgutobjekt ist als geheim eingestuft.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>NfD: Das Schriftgutobjekt ist als "nur für den Dienstgebrauch (nfD)" eingestuft.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Offen: Das Schriftgutobjekt ist nicht eingestuft.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="004">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Streng geheim: Das Schriftgutobjekt ist als streng geheim eingestuft.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="005">
+        <xs:annotation>
+          <xs:appinfo>
+            <xoev:codeName>Vertraulich: Das Schriftgutobjekt ist als vertraulich eingestuft.</xoev:codeName>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Aussonderung xmlns="urn:xoev-de:xdomea:schema:2.3.0">
+  <Kopf>
+    <ProzessID>TEST-002</ProzessID>
+    <!-- Ungültiges Element, das nicht im Schema definiert ist -->
+    <UnbekanntesFeld>sollte fehlschlagen</UnbekanntesFeld>
+  </Kopf>
+</Aussonderung>

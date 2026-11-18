@@ -1,0 +1,116 @@
+{{- if .Values.prometheusRule.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ include "aussonderungstool.fullname" . }}
+  labels:
+    {{- include "aussonderungstool.labels" . | nindent 4 }}
+spec:
+  groups:
+    - name: aussonderungstool.rules
+      interval: 1m
+      rules:
+        # ----- Verfügbarkeit ------------------------------------------------
+        - alert: AussonderungstoolPodNichtLaufend
+          # Kein laufender Pod über 5 Minuten — Service ist down.
+          expr: |
+            sum(kube_pod_status_ready{namespace="{{ .Release.Namespace }}",
+                condition="true"}
+                * on(pod) group_left kube_pod_labels{
+                  label_app_kubernetes_io_name="{{ include "aussonderungstool.name" . }}"
+                }) < 1
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Aussonderungstool-Pod ist nicht bereit
+            description: Seit >5 min läuft kein bereiter Pod in {{ .Release.Namespace }}.
+
+        - alert: AussonderungstoolHäufigeRestarts
+          # ≥3 Restarts in 15 min deuten auf CrashLoop oder OOMKill.
+          expr: |
+            increase(kube_pod_container_status_restarts_total{
+              namespace="{{ .Release.Namespace }}",
+              container="aussonderungstool"
+            }[15m]) >= 3
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Aussonderungstool-Container startet zu oft neu
+            description: Restart-Schleife oder OOMKill — Logs prüfen.
+
+        # ----- HTTP-Fehler --------------------------------------------------
+        - alert: AussonderungstoolHoheFehlerquote
+          # >5 % 5xx-Antworten über 10 Minuten.
+          expr: |
+            (
+              sum(rate(http_requests_total{
+                handler!="/metrics",
+                status=~"5.."
+              }[10m]))
+              /
+              sum(rate(http_requests_total{handler!="/metrics"}[10m]))
+            ) > 0.05
+          for: 10m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Aussonderungstool liefert >5 % HTTP-5xx"
+            description: Hohe serverseitige Fehlerquote — App-Logs prüfen.
+
+        # ----- Ressourcen ---------------------------------------------------
+        - alert: AussonderungstoolSpeicherHoch
+          # >90 % des Memory-Limits über 10 min — OOMKill droht.
+          expr: |
+            (
+              container_memory_working_set_bytes{
+                namespace="{{ .Release.Namespace }}",
+                container="aussonderungstool"
+              }
+              /
+              kube_pod_container_resource_limits{
+                namespace="{{ .Release.Namespace }}",
+                container="aussonderungstool", resource="memory"
+              }
+            ) > 0.9
+          for: 10m
+          labels:
+            severity: warning
+          annotations:
+            summary: Aussonderungstool nahe am Memory-Limit
+            description: "Über 90 % des Speicherlimits verbraucht. Limit erhöhen oder Last reduzieren."
+
+        - alert: AussonderungstoolPVCFastVoll
+          # >85 % des Daten-PVC belegt.
+          expr: |
+            (
+              kubelet_volume_stats_used_bytes{
+                namespace="{{ .Release.Namespace }}",
+                persistentvolumeclaim=~"{{ include "aussonderungstool.fullname" . }}-data"
+              }
+              /
+              kubelet_volume_stats_capacity_bytes{
+                namespace="{{ .Release.Namespace }}",
+                persistentvolumeclaim=~"{{ include "aussonderungstool.fullname" . }}-data"
+              }
+            ) > 0.85
+          for: 30m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Daten-PVC zu >85 % belegt"
+            description: PVC-Größe erhöhen oder Retention verkürzen.
+
+        # ----- Scrape selbst ------------------------------------------------
+        - alert: AussonderungstoolMetricsScrapeFehlt
+          # ServiceMonitor scraped nicht — Token oder Netzwerk prüfen.
+          expr: |
+            absent(up{job="{{ include "aussonderungstool.fullname" . }}"}) == 1
+          for: 15m
+          labels:
+            severity: warning
+          annotations:
+            summary: Kein Metrics-Scrape vom Aussonderungstool
+            description: ServiceMonitor erreicht /metrics nicht — METRICS_TOKEN oder NetworkPolicy prüfen.
+{{- end }}

@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+# Nur für Entwicklung und Tests — NICHT im Runtime-Image installieren.
+# Quelle für requirements-dev.txt:
+#
+#   uv pip compile backend/requirements-dev.in --universal --python-version 3.12 \
+#       --generate-hashes -o backend/requirements-dev.txt
+-r requirements.in
+pytest
+pytest-asyncio
+watchfiles
+bandit
+ruff
+pip-audit

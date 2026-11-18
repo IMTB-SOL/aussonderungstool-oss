@@ -1,0 +1,69 @@
+<!--
+SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anmelden · Aussonderungstool</title>
+  <base href="/" /><!-- Wird beim Ausliefern durch die App auf den BASE_PATH gesetzt -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="tool/imtb-tokens.css" />
+  <style>
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+           background: var(--bg-soft, #EBE1CE); font-family: var(--font-sans, "Segoe UI", Arial, sans-serif);
+           color: var(--fg, #212434); }
+    .card { background: var(--bg, #fff); border: 1px solid var(--divider, #A9A093); border-radius: 12px;
+            padding: 2rem 2.25rem; width: 100%; max-width: 380px; box-shadow: 0 4px 16px rgba(60,64,88,.10); }
+    h1 { font-size: 1.25rem; margin: 0 0 1.25rem; color: var(--fg-display, #3C4058); }
+    label { display: block; font-size: .85rem; margin: .75rem 0 .25rem; color: var(--fg-muted, #82849F); }
+    input { width: 100%; box-sizing: border-box; padding: .6rem .7rem; border: 1px solid var(--divider, #A9A093);
+            border-radius: 8px; font-size: .95rem; }
+    button { width: 100%; margin-top: 1.25rem; padding: .65rem; border: 0; border-radius: 8px;
+             background: var(--accent, #E4523B); color: #fff; font-size: .95rem; font-weight: 600; cursor: pointer; }
+    button:hover { background: var(--accent-strong, #C14731); }
+    .toggle { margin-top: 1rem; text-align: center; font-size: .85rem; color: var(--fg-muted, #82849F); }
+    .toggle a { color: var(--accent, #E4523B); cursor: pointer; text-decoration: underline; }
+    .meldung { margin-top: 1rem; font-size: .85rem; padding: .6rem .7rem; border-radius: 8px; display: none; }
+    .meldung.fehler { display: block; background: #FDECEA; color: #C62828; }
+    .meldung.ok { display: block; background: #E8F5E9; color: #2E7D32; }
+    .ms-btn { display:block; width:100%; box-sizing:border-box; text-align:center;
+              padding:.65rem; border:1px solid var(--divider,#A9A093); border-radius:8px;
+              background:var(--bg,#fff); color:var(--fg,#212434); text-decoration:none;
+              font-size:.95rem; font-weight:600; }
+    .ms-btn:hover { background:var(--bg-soft,#EBE1CE); }
+    .trenner { text-align:center; margin:1rem 0; color:var(--fg-muted,#82849F);
+               font-size:.8rem; position:relative; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1 id="titel">Anmelden</h1>
+
+    <a id="ms-login" class="ms-btn" style="display:none" href="#">
+      Anmelden mit Microsoft-Konto
+    </a>
+    <div id="trenner" class="trenner" style="display:none"><span>oder</span></div>
+
+    <div id="pw-block">
+      <form id="form">
+        <label for="email">E-Mail-Adresse</label>
+        <input id="email" type="email" autocomplete="username" required />
+        <label for="passwort">Passwort</label>
+        <input id="passwort" type="password" autocomplete="current-password" required />
+        <button id="submit" type="submit">Anmelden</button>
+      </form>
+      <div class="toggle" id="toggle">
+        Noch kein Konto? <a id="toggle-link">Registrieren</a>
+      </div>
+    </div>
+
+    <div id="meldung" class="meldung"></div>
+  </main>
+  <script src="login.js"></script>
+</body>
+</html>

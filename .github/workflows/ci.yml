@@ -1,0 +1,289 @@
+# SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      DATA_DIR: /tmp/ci-data
+      VERAPDF_PATH: /tmp/verapdf
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: veraPDF-Wrapper aus vendored JAR einrichten
+        run: |
+          printf '#!/bin/sh\nexec java -cp %s/vendor/verapdf/greenfield-apps-1.28.2.jar org.verapdf.apps.GreenfieldCliWrapper "$@"\n' "$GITHUB_WORKSPACE" > /tmp/verapdf
+          chmod +x /tmp/verapdf
+      - name: Abhängigkeiten installieren
+        run: pip install --require-hashes -r backend/requirements-dev.txt
+      - name: Tests
+        run: cd backend && python -m pytest -q
+
+  frontend-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+      - name: Tool-SPA bauen (esbuild)
+        run: |
+          npm ci
+          npm run build
+
+  sast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: Prüfwerkzeuge installieren (bandit, ruff — mit Hashes festgeschrieben)
+        run: pip install --require-hashes -r backend/requirements-dev.txt
+      - name: SAST (bandit) — Python-Sicherheitsanalyse
+        run: bandit -r backend -x backend/venv,backend/tests --severity-level medium
+      - name: Lint (ruff)
+        run: ruff check backend
+      - name: Format-Prüfung (ruff)
+        run: ruff format --check backend
+
+  dependency-scan:
+    # Direkte und transitive Abhängigkeiten regelmäßig auf bekannte
+    # Schwachstellen prüfen. Bricht bei aktuell bekannten CVEs ab.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: pip-audit installieren (mit Hashes festgeschrieben)
+        run: pip install --require-hashes -r backend/requirements-dev.txt
+      - name: pip-audit (Backend-Abhängigkeiten)
+        # --strict bricht bei jeder bekannten Schwachstelle ab.
+        # --ignore-vuln kann projektspezifisch gepflegt werden, wenn ein
+        # Patch noch nicht verfügbar ist (Fristen siehe SECURITY.md).
+        run: pip-audit --strict --require-hashes -r backend/requirements.txt
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+      - name: npm audit (Frontend-Abhängigkeiten, nur Prod)
+        # high+critical schlagen fehl; moderate werden als Warnung geloggt.
+        run: |
+          npm ci --omit=dev --ignore-scripts
+          npm audit --omit=dev --audit-level=high
+
+  image:
+    runs-on: ubuntu-latest
+    # Push erst nach Tests, SAST, Dep-Scan und Image-Härtung — sonst landen
+    # ungehärtete Images mit gültiger Signatur in der Registry.
+    needs: [test, frontend-check, sast, dependency-scan, image-hardening]
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Image bauen (Plattform AMD64)
+        run: docker build --platform=linux/amd64 -t aussonderungstool:ci .
+      - name: SBOM erzeugen — SPDX (syft)
+        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
+        with:
+          image: aussonderungstool:ci
+          format: spdx-json
+          output-file: sbom.spdx.json
+      - name: SBOM erzeugen — CycloneDX (syft, TR-03183-2-konform)
+        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
+        with:
+          image: aussonderungstool:ci
+          format: cyclonedx-json
+          output-file: sbom.cdx.json
+      - name: SBOMs als Artefakte ablegen
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: sbom
+          path: |
+            sbom.spdx.json
+            sbom.cdx.json
+      - name: Schwachstellen-Scan (Trivy)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: aussonderungstool:ci
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"
+      - name: An ghcr.io anmelden
+        if: github.event_name == 'push'
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Image taggen und pushen
+        if: github.event_name == 'push'
+        env:
+          OWNER: ${{ github.repository_owner }}
+          SHA: ${{ github.sha }}
+          REF: ${{ github.ref }}
+        run: |
+          # ghcr.io verlangt Kleinschreibung — Organisation aus dem Repo ableiten.
+          IMAGE="ghcr.io/$(printf '%s' "$OWNER" | tr '[:upper:]' '[:lower:]')/aussonderungstool"
+          docker tag aussonderungstool:ci "$IMAGE:$SHA"
+          docker push "$IMAGE:$SHA"
+          # Versions-Tag nur bei Release-Tags (v*), sonst überschriebe jeder
+          # main-Push das veröffentlichte Release-Image.
+          case "$REF" in
+            refs/tags/v*)
+              VERSION=$(grep '^version:' deploy/helm/aussonderungstool/Chart.yaml | awk '{print $2}')
+              docker tag aussonderungstool:ci "$IMAGE:$VERSION"
+              docker push "$IMAGE:$VERSION"
+              ;;
+          esac
+          echo "DIGEST=$(docker inspect --format='{{ index .RepoDigests 0 }}' "$IMAGE:$SHA")" >> "$GITHUB_ENV"
+      - name: Cosign installieren
+        if: github.event_name == 'push'
+        uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
+      - name: Image keyless signieren
+        if: github.event_name == 'push'
+        run: cosign sign --yes "$DIGEST"
+      - name: SBOMs als Attestation an das Image binden
+        if: github.event_name == 'push'
+        run: |
+          cosign attest --yes --predicate sbom.spdx.json \
+            --type spdxjson "$DIGEST"
+          cosign attest --yes --predicate sbom.cdx.json \
+            --type cyclonedx "$DIGEST"
+
+  image-hardening:
+    # Härtung des Container-Images gegen CIS-Benchmark.
+    # dockle prüft die Image-Konfiguration (USER, EXPOSE, EMPTY-PASSWORD,
+    # apt/apk-Cleanup, Healthcheck-Hinweise). Trivy-config scant die
+    # Kubernetes-/Helm-Manifeste auf Misconfigurations.
+    runs-on: ubuntu-latest
+    needs: [test, frontend-check, sast, dependency-scan]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Image bauen
+        run: docker build --platform=linux/amd64 -t aussonderungstool:hard .
+      - name: dockle (CIS-Container-Härtung)
+        uses: erzz/dockle-action@69369bc745ee29813f730231a821bcd4f71cd290 # v1.4.0
+        with:
+          image: aussonderungstool:hard
+          exit-code: 1
+          failure-threshold: WARN
+          accept-key: CIS-DI-0010   # OS-User chown gibt False-Positive für /tmp
+      - name: Trivy config-Scan (Helm/Kubernetes-Misconfig)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: config
+          scan-ref: deploy/
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+
+  dast:
+    # Dynamische Sicherheitsprüfung gegen OWASP Top 10 mit ZAP
+    # Baseline-Scan. Läuft gegen das im CI gebaute Image — bricht NICHT bei
+    # Findings (Warnung), damit etablierte False-Positives den Build nicht
+    # blockieren. Findings werden als Report-Artefakt abgelegt und manuell
+    # reviewed (siehe SECURITY.md).
+    runs-on: ubuntu-latest
+    needs: [test, frontend-check, sast, dependency-scan]
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Image bauen
+        run: docker build --platform=linux/amd64 -t aussonderungstool:dast .
+      - name: Anwendung starten (Hintergrund, Auth aus, Metrics offen)
+        run: |
+          docker run -d --name app \
+            -p 8000:8000 \
+            -e AUTH_MODUS=disabled \
+            -e METRICS_TOKEN=dast-only \
+            aussonderungstool:dast
+          # Auf /health warten (max. 60 s)
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health >/dev/null 2>&1; then
+              echo "App bereit nach ${i}*2 s"; break
+            fi
+            sleep 2
+          done
+          curl -fsS http://localhost:8000/health
+      - name: ZAP Baseline-Scan
+        uses: zaproxy/action-baseline@0619037bb784a56e2e06b104f0ebe157e076f075 # v0.13.0
+        with:
+          target: "http://localhost:8000/"
+          # Fail-Level: nur Hard-Errors brechen den Job (-I = informative ignorieren).
+          cmd_options: "-I"
+          fail_action: false
+          allow_issue_writing: false
+      - name: ZAP-Report als Artefakt ablegen
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: zap-baseline-report
+          path: |
+            report_html.html
+            report_md.md
+            report_json.json
+      - name: Container beenden
+        if: always()
+        run: docker logs app && docker rm -f app || true
+
+  # ---------------------------------------------------------------------------
+  # DCO-Signoff-Check: jeder Commit in einer PR muss Signed-off-by tragen
+  # (CONTRIBUTING.md, Developer Certificate of Origin v1.1).
+  # ---------------------------------------------------------------------------
+  dco-check:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: REUSE-Konformität prüfen
+        run: |
+          pip install --quiet 'reuse>=6,<7'
+          reuse lint
+      - name: DCO-Signoff in PR-Commits prüfen
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          # Alle nicht-Merge-Commits im PR sammeln und prüfen
+          MISSING=""
+          while IFS= read -r sha; do
+            [ -z "$sha" ] && continue
+            body=$(git log -1 "$sha" --pretty=format:"%B")
+            if ! printf '%s\n' "$body" | grep -qE '^Signed-off-by: .+ <.+@.+>'; then
+              subject=$(git log -1 "$sha" --pretty=format:"%s")
+              MISSING="${MISSING}- ${sha:0:12} ${subject}"$'\n'
+            fi
+          done < <(git log --no-merges --pretty=format:"%H" "$BASE_SHA..HEAD")
+
+          if [ -n "$MISSING" ]; then
+            printf '::error::Folgende Commits haben keinen DCO-Signoff:\n%s\n' "$MISSING"
+            printf 'Bitte signieren:\n'
+            printf '  git commit --amend -s --no-edit   # letzten Commit\n'
+            printf '  git rebase --signoff <commit>~    # mehrere zurückliegende\n'
+            printf 'Details in CONTRIBUTING.md.\n'
+            exit 1
+          fi
+          echo "OK: alle PR-Commits haben Signed-off-by."

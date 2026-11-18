@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Minimales XSD-Schema für XDOMEA 2.3.0 (Testversion).
+  Das vollständige Schema muss von der XDOMEA-Website bezogen werden.
+  Dieses Schema dient nur der Entwicklung und dem Testen.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xdomea="urn:xoev-de:xdomea:schema:2.3.0"
+           targetNamespace="urn:xoev-de:xdomea:schema:2.3.0"
+           elementFormDefault="qualified">
+
+  <xs:element name="Aussonderung">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Kopf" type="xdomea:KopfType" minOccurs="0"/>
+        <xs:element name="Schriftgutobjekt" type="xdomea:SchriftgutobjektType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="KopfType">
+    <xs:sequence>
+      <xs:element name="ProzessID" type="xs:string" minOccurs="0"/>
+      <xs:element name="Erstellungsdatum" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SchriftgutobjektType">
+    <xs:sequence>
+      <xs:element name="Kennung" type="xs:string" minOccurs="0"/>
+      <xs:element name="Aussonderungsart" type="xs:string" minOccurs="0"/>
+      <xs:element name="Dokument" type="xdomea:DokumentType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DokumentType">
+    <xs:sequence>
+      <xs:element name="Dateiname" type="xs:string"/>
+      <xs:element name="MimeTyp" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,1668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xoev="www.deutschland-online.de/XOEV" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:2" xmlns:xdomea="http://www.xdomea.de/V2.1.0" targetNamespace="http://www.xdomea.de/V2.1.0" version="2.1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="xdomea-Codelisten.xsd" />
+  <xs:complexType name="AllgemeineRueckmeldungCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Rückmeldungen für Fachverfahrensnachrichten unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:AllgemeineRueckmeldungCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="AllgemeineRueckmeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="AnschriftstypCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Anschriftentypen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:AnschriftstypCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Anschriftstyp">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="AussonderungsartCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Aussonderungsarten unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:AussonderungsartCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Aussonderungsart">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="BeteiligungsstatusCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Beteiligungsstatus unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:BeteiligungsstatusCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Beteiligungsstatus">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="BewertungsvorschlagCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Bewertungsvorschlägen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:BewertungsvorschlagCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Bewertungsvorschlag">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Einbindung einer in xdomea oder extern gepflegten Codeliste.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:token">
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistSchemeUniformResourceIdentifier" type="xs:token" use="optional">
+          <xs:annotation>
+            <xs:documentation>Der Uniform Resource Identifier (URI), der festlegt, wo das Schema zur Codeliste hinterlegt ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistUniformResourceIdentifier" type="xs:anyURI" use="optional">
+          <xs:annotation>
+            <xs:documentation>Der Uniform Resource Identifiert (URI), der festlegt, wo die Codeliste zu finden ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="optional" default="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DateiformatCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Dateiformaten unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:DateiformatCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Dateiformat">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DatenaustauschartCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Datenaustauscharten unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:DatenaustauschartCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Datenaustauschart">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DatentypCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Datentypen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:DatentypCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Datentyp">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="KommunikationsartCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Kommunikationsarten unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:KommunikationsartCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Kommunikationsart">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="KompressionsverfahrenCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Kompressionsverfahren unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:KompressionsverfahrenCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Kompressionsverfahren">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="KonfigurationsparameterCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Konfigurationsparametern unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:KonfigurationsparameterCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Konfigurationsparameter">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="KonfigurationsparameterGruppeCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Konfigurationsparametergruppen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:KonfigurationsparameterGruppeCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="KonfigurationsparameterGruppe">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="MediumCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Medientypen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:MediumCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Medium">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="NachrichtentypCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Nachrichtentypen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:NachrichtentypCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Nachrichtentyp">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SchriftgutobjekttypCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Schriftgutobjekttypen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SchriftgutobjekttypCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Schriftgutobjekttyp">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0601CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0601 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0601CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0601.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0602CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0602 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0602CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0602.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0603CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0603 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0603CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0603.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0604CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0604 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0604CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0604.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0605CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0605 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0605CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0605.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0606CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0606 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0606CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0606.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0607CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0607 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0607CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0607.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0608CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0608 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0608CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0608.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0609CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0609 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0609CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0609.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0610CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0610 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0610CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0610.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0611CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0611 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0611CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0611.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0612CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0612 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0612CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0612.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0613CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0613 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0613CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0613.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0614CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0614 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0614CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0614.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0615CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0615 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0615CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0615.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0616CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0616 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0616CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0616.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0617CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0617 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0617CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0617.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0618CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0618 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0618CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0618.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0619CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0619 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0619CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0619.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0620CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0620 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0620CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0620.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0621CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0621 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0621CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0621.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0622CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0622 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0622CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0622.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0623CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0623 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0623CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0623.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0624CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0624 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0624CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0624.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0625CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0625 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0625CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0625.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0626CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0626 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0626CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0626.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0627CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0627 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0627CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0627.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0628CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0628 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0628CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0628.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SpezifischeFehlermeldung0631CodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von spezifischen Fehlermeldungen für die Nachricht 0631 unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:SpezifischeFehlermeldung0631CodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="0631.SpezifischeFehlermeldung">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="StaatCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Staaten unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes. Genutzt wird hier die ISO-3166-1 (ALPHA2) Kennung.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:token">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="International Standardization for Organization (ISO)">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required">
+          <xs:annotation>
+            <xs:documentation>Die verwendete Version der Codeliste. Es wird der Einsatz des aktuellsten Standes empfohlen.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="ISO 3166-1 (ALPHA2) ">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistUniformResourceIdentifier" type="xs:anyURI" use="required" fixed="http://www.iso.org">
+          <xs:annotation>
+            <xs:documentation>Der Uniform Resource Identifiert (URI), der festlegt, wo die Codeliste zu finden ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="TransportwegCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Transportwegen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:TransportwegCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Transportweg">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="VertraulichkeitsstufeCodeType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Werteliste von Vertraulichkeitsstufen unter Angabe weiterer Informationen zur konkreten Angabe eines Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xdomea:VertraulichkeitsstufeCodeContentType">
+        <xs:attribute name="codeName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Der Klartext zu dem angegebenen Schlüsselwert aus der konkreten Codelisten-Definition..</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistAgencyName" type="xs:string" use="required" fixed="AG xdomea des KoopA ADV">
+          <xs:annotation>
+            <xs:documentation>Der Name der Organisation, die für die Codeliste verantwortlich ist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistVersionIdentifier" type="xs:token" use="required" fixed="2.1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="languageCode" type="xs:language" use="required" fixed="de">
+          <xs:annotation>
+            <xs:documentation>Die Sprache, in der die Codeliste vorliegt.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="codelistName" type="xs:string" use="required" fixed="Vertraulichkeitsstufe">
+          <xs:annotation>
+            <xs:documentation>Der Name der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="stringDateinameType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Angabe eines Dateinamens nach dem Muster "UUID_Dateiname.Dateiformat".</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9|A-F|a-f]{8}-[0-9|A-F|a-f]{4}-[0-9|A-F|a-f]{4}-[0-9|A-F|a-f]{4}-[0-9|A-F|a-f]{12}_.*\..*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="stringUUIDType">
+    <xs:annotation>
+      <xs:documentation>Der Datentyp zur Angabe einer UUID.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9|A-F|a-f]{8}-[0-9|A-F|a-f]{4}-[0-9|A-F|a-f]{4}-[0-9|A-F|a-f]{4}-[0-9|A-F|a-f]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,90 @@
+# Werte für das Aussonderungstool-Helm-Chart.
+# Image, Route-Host und LLM-Endpoint sind beim Deployment zu überschreiben.
+
+image:
+  repository: registry.example.com/aussonderungstool
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+# Nur bei privater Registry, z. B. [{name: mein-pull-secret}].
+imagePullSecrets: []
+
+# SQLite + RWO-Volume: nicht über 1 erhöhen.
+replicaCount: 1
+
+route:
+  host: aussonderungstool.apps.example.com
+  tls: true
+
+service:
+  port: 8000
+
+persistence:
+  # Leer = Default-StorageClass des Clusters.
+  storageClass: ""
+  size: 50Gi
+
+resources:
+  # LibreOffice + OCR sind RAM-getrieben, daher CPU bewusst niedriger.
+  requests:
+    cpu: 250m
+    memory: 2Gi
+  limits:
+    cpu: "1"
+    memory: 8Gi
+
+# emptyDir für /tmp (LibreOffice-HOME, veraPDF, Scratch).
+tmpSizeLimit: 4Gi
+
+# Nicht-geheime Anwendungskonfiguration — landet 1:1 in der ConfigMap.
+config:
+  APP_ENV: production
+  COOKIE_SECURE: "true"
+  # passwort | azure | beide — Azure benötigt AZURE_* im Secret.
+  AUTH_MODUS: "passwort"
+  BASE_PATH: ""
+  OLLAMA_BASE_URL: "http://ollama.example.svc:11434/v1"
+  # Beispiel-Tag — an eigenes Modell anpassen.
+  OLLAMA_MODEL: "qwen3:8b"
+  SCALEWAY_ENABLED: "false"
+  # <projekt-id> beim Deployment ersetzen.
+  SCALEWAY_BASE_URL: "https://api.scaleway.ai/<projekt-id>/v1"
+  SCALEWAY_MODEL: "gpt-oss-120b"
+  PDFA_ZIELFORMAT: "2b"
+  MAX_UPLOAD_SIZE_MB: "500"
+  TZ: "Europe/Berlin"
+  PYTHONDONTWRITEBYTECODE: "1"
+
+# Name eines vorab bereitgestellten Secrets (siehe secret.example.yaml).
+existingSecret: aussonderungstool-secrets
+
+serviceMonitor:
+  enabled: true
+  interval: 60s
+
+# Prometheus-Alerts für den Alertmanager des Clusters.
+prometheusRule:
+  enabled: true
+
+networkPolicy:
+  enabled: true
+  # Ingress nur aus Namespaces mit diesen Labels (OpenShift-Standard:
+  # Router + Monitoring). Bei abweichenden Labels überschreiben.
+  ingressFromNamespaceLabels:
+    - network.openshift.io/policy-group: ingress
+    - network.openshift.io/policy-group: monitoring
+  # Egress zusätzlich zu DNS. Die Ports MÜSSEN zu config.OLLAMA_BASE_URL
+  # (11434) bzw. Scaleway (443) passen, sonst scheitern alle LLM-Aufrufe.
+  # Empfohlen: das Ziel zusätzlich per "to:" einschränken.
+  egress:
+    - ports:
+        - protocol: TCP
+          port: 11434
+        - protocol: TCP
+          port: 443
+      # to:
+      #   - ipBlock:
+      #       cidr: 203.0.113.10/32
+
+nameOverride: ""
+fullnameOverride: ""

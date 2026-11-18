@@ -1,0 +1,13 @@
+{
+  "name": "aussonderungstool-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Build der Tool-SPA (JSX -> JS) mit esbuild.",
+  "scripts": {
+    "build": "esbuild frontend/tool/*.jsx --outdir=frontend/tool/build --minify --target=es2020 --jsx=transform",
+    "build:watch": "esbuild frontend/tool/*.jsx --outdir=frontend/tool/build --minify --target=es2020 --watch --jsx=transform"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}

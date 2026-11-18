@@ -1,0 +1,18 @@
+Aussonderungstool
+Copyright (c) 2026 IMTB Solutions GmbH
+
+Lizenziert unter der European Union Public Licence, Version 1.2 (EUPL-1.2).
+Lizenztext: LICENSE (englisch), LIZENZ (deutsch). Beide Fassungen sind die
+unveränderten offiziellen Texte.
+
+Dieses Projekt enthält bzw. nutzt Komponenten Dritter, die unter ihren
+eigenen Lizenzen stehen und nicht unter der EUPL-1.2:
+
+- veraPDF (vendor/verapdf/) — MPL-2.0
+- React, ReactDOM (frontend/assets/vendor/) — MIT
+- Inter (frontend/assets/vendor/) — SIL Open Font License 1.1
+- xdomea-XML-Schemata und eingebundene Codelisten (backend/assets/xsd/) —
+  Rechte bei den jeweiligen Herausgebern, unverändert weitergegeben
+
+Vollständige Übersicht einschließlich aller Abhängigkeiten:
+THIRD_PARTY_LICENSES.md. Lizenztexte: LICENSES/.

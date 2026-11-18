@@ -1,0 +1,26 @@
+{{- if .Values.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "aussonderungstool.fullname" . }}
+  labels:
+    {{- include "aussonderungstool.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "aussonderungstool.selectorLabels" . | nindent 6 }}
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: {{ .Values.serviceMonitor.interval }}
+      # Scrape mit Bearer-Token; das Secret mit METRICS_TOKEN muss im
+      # Namespace des ServiceMonitors liegen.
+      authorization:
+        type: Bearer
+        credentials:
+          name: {{ .Values.existingSecret }}
+          key: METRICS_TOKEN
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+{{- end }}

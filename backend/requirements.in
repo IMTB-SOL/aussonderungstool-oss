@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+# Direkte Laufzeit-Abhängigkeiten (Quelle für requirements.txt).
+#
+# requirements.txt wird hieraus erzeugt und enthält alle direkten UND
+# transitiven Pakete mit exakter Version und Hash (reproduzierbarer Build):
+#
+#   uv pip compile backend/requirements.in --universal --python-version 3.12 \
+#       --generate-hashes -o backend/requirements.txt
+#
+# Versionsgrenzen hier nur setzen, wenn ein Major-Sprung bewusst
+# zurückgehalten wird (Begründung als Kommentar).
+fastapi
+uvicorn[standard]
+sqlalchemy>=2.0,<2.1
+alembic
+python-multipart
+lxml
+python-magic
+pdfplumber
+pypdf
+python-docx
+# python-pptx 1.x und openai 2.x sind Major-Sprünge mit API-Änderungen —
+# bis zur Prüfung zurückgehalten.
+python-pptx<1
+pytesseract
+img2pdf
+ocrmypdf
+openai<2
+httpx
+python-dotenv
+anyio
+msal
+requests
+itsdangerous
+prometheus-fastapi-instrumentator

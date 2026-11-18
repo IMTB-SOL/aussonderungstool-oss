@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+# Lokaler Betrieb als Container. Erwartet eine .env (siehe .env.example) und
+# ein Ollama auf dem Host; anderes LLM über OLLAMA_BASE_URL in der .env.
+services:
+  app:
+    build: .
+    container_name: aussonderungstool
+    restart: unless-stopped
+    # Nur lokal erreichbar; für externen Zugriff einen Reverse-Proxy mit TLS vorschalten.
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - app-data:/app/data
+    env_file:
+      - .env
+    environment:
+      - APP_ENV=${APP_ENV:-production}
+      - AUTH_MODUS=${AUTH_MODUS:-passwort}
+      - DATA_DIR=/app/data
+      - DATABASE_URL=sqlite:////app/data/aussonderung.db
+      - VERAPDF_PATH=/opt/verapdf/verapdf
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434/v1}
+      # Subpfad-Deployment: einkommentieren, um das Tool unter /aussonderungstool/ auszuliefern
+      # - BASE_PATH=/aussonderungstool
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  app-data:

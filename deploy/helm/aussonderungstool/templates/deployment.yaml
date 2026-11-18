@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "aussonderungstool.fullname" . }}
+  labels:
+    {{- include "aussonderungstool.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  # Recreate: RWO-Volume und SQLite (Single-Writer) lassen kein paralleles
+  # Mounten zu — kein RollingUpdate.
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "aussonderungstool.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "aussonderungstool.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      # Anwendung braucht keinen Kubernetes-API-Zugriff — Token nicht mounten.
+      # Reduziert die Angriffsfläche bei Container-Breakout (CIS/Trivy).
+      automountServiceAccountToken: false
+      # Kein runAsUser — OpenShift vergibt die UID über die SCC.
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: aussonderungstool
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "aussonderungstool.fullname" . }}-config
+            - secretRef:
+                name: {{ .Values.existingSecret }}
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            failureThreshold: 30
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
+            periodSeconds: 10
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          # Bei readOnlyRootFilesystem sind nur diese beiden Pfade beschreibbar.
+          # Das Image MUSS HOME auf einen davon zeigen (aktuell HOME=/tmp) —
+          # LibreOffice legt dort sein Profil an.
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "aussonderungstool.fullname" . }}-data
+        - name: tmp
+          emptyDir:
+            sizeLimit: {{ .Values.tmpSizeLimit }}

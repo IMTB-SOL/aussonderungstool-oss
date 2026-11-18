@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Aussonderung xmlns="urn:xoev-de:xdomea:schema:2.3.0">
+  <Kopf>
+    <ProzessID>TEST-001</ProzessID>
+    <Erstellungsdatum>2026-01-15</Erstellungsdatum>
+  </Kopf>
+  <Schriftgutobjekt>
+    <Kennung>SGO-001</Kennung>
+    <Aussonderungsart>Anbietung</Aussonderungsart>
+    <Dokument>
+      <Dateiname>testdokument.pdf</Dateiname>
+      <MimeTyp>application/pdf</MimeTyp>
+    </Dokument>
+    <Dokument>
+      <Dateiname>testdokument.docx</Dateiname>
+      <MimeTyp>application/vnd.openxmlformats-officedocument.wordprocessingml.document</MimeTyp>
+    </Dokument>
+  </Schriftgutobjekt>
+</Aussonderung>

@@ -1,0 +1,40 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "aussonderungstool.fullname" . }}
+  labels:
+    {{- include "aussonderungstool.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "aussonderungstool.selectorLabels" . | nindent 6 }}
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    # Eingehend nur vom Router-Namespace (Route) und vom Monitoring-Namespace
+    # (/metrics-Scrape).
+    - from:
+        {{- with .Values.networkPolicy.ingressFromNamespaceLabels }}
+        {{- range . }}
+        - namespaceSelector:
+            matchLabels:
+              {{- toYaml . | nindent 14 }}
+        {{- end }}
+        {{- end }}
+      ports:
+        - protocol: TCP
+          port: {{ .Values.service.port }}
+  egress:
+    # DNS-Auflösung
+    - ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+    # Anwendungs-Egress (LLM-Endpoint) — Ziel per "to:" einschränken, siehe values.yaml
+    {{- with .Values.networkPolicy.egress }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+{{- end }}

@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2026 IMTB Solutions GmbH
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+version = 1
+SPDX-PackageName = "Aussonderungstool"
+SPDX-PackageSupplier = "IMTB Solutions GmbH"
+SPDX-PackageDownloadLocation = "https://github.com/IMTB-SOL/aussonderungstool"
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 IMTB Solutions GmbH"
+SPDX-License-Identifier = "EUPL-1.2"
+
+[[annotations]]
+path = "vendor/verapdf/**.jar"
+precedence = "override"
+SPDX-FileCopyrightText = "veraPDF Consortium"
+SPDX-License-Identifier = "MPL-2.0"
+SPDX-FileComment = "veraPDF ist unter MPL-2.0 und GPL-3.0-or-later dual lizenziert; hier wird die MPL-2.0 gewählt. Quelle: https://github.com/veraPDF/veraPDF-apps"
+
+[[annotations]]
+path = ["frontend/assets/vendor/react.production.min.js", "frontend/assets/vendor/react-dom.production.min.js"]
+precedence = "override"
+SPDX-FileCopyrightText = "Meta Platforms, Inc. and affiliates"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["frontend/assets/vendor/InterVariable.woff2", "frontend/assets/vendor/InterVariable-Italic.woff2", "frontend/assets/vendor/inter.css"]
+precedence = "override"
+SPDX-FileCopyrightText = "The Inter Project Authors (https://github.com/rsms/inter)"
+SPDX-License-Identifier = "OFL-1.1"
+
+# Fremdschemata: unverändert weitergegeben, keine Lizenzangabe in den Dateien.
+# Das Stub-Schema backend/assets/xsd/xdomea_2.3.xsd ist Eigenentwicklung (Tests)
+# und fällt unter die allgemeine Regel oben.
+[[annotations]]
+path = "backend/assets/xsd/v*/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Herausgeber der jeweiligen Schemata (xdomea: Arbeitsgruppe xdomea des IT-Planungsrats / KoSIT; Codelisten: UN/CEFACT, ISO, IANA, XÖV)"
+SPDX-License-Identifier = "LicenseRef-Fremdschema"
