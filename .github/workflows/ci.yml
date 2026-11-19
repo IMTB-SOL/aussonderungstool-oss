@@ -104,13 +104,13 @@ jobs:
       - name: Image bauen (Plattform AMD64)
         run: docker build --platform=linux/amd64 -t aussonderungstool:ci .
       - name: SBOM erzeugen — SPDX (syft)
-        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
+        uses: anchore/sbom-action@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c # v0.24.3
         with:
           image: aussonderungstool:ci
           format: spdx-json
           output-file: sbom.spdx.json
       - name: SBOM erzeugen — CycloneDX (syft, TR-03183-2-konform)
-        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
+        uses: anchore/sbom-action@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c # v0.24.3
         with:
           image: aussonderungstool:ci
           format: cyclonedx-json
