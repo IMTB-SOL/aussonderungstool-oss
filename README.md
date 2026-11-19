@@ -1,7 +1,7 @@
 # Aussonderungstool
 
 Werkzeug zur Prüfung, Bewertung und Erschließung digitaler Akten im
-XDOMEA-Format — für Archive und abgebende Stellen der öffentlichen Verwaltung.
+XDOMEA-Format für Archive und abgebende Stellen der öffentlichen Verwaltung.
 
 Das Tool nimmt ein XDOMEA-Aussonderungspaket (ZIP) entgegen und führt
 Archivarinnen und Archivare in fünf Schritten durch die Prüfung. Jeder Schritt
