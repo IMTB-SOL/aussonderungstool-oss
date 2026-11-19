@@ -24,7 +24,7 @@ pypdf
 python-docx
 # python-pptx 1.x und openai 2.x sind Major-Sprünge mit API-Änderungen —
 # bis zur Prüfung zurückgehalten.
-python-pptx<1
+python-pptx<2
 pytesseract
 img2pdf
 ocrmypdf
