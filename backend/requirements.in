@@ -14,7 +14,7 @@
 # zurückgehalten wird (Begründung als Kommentar).
 fastapi
 uvicorn[standard]
-sqlalchemy>=2.0,<2.1
+sqlalchemy>=2.1.8,<2.2
 alembic
 python-multipart
 lxml
