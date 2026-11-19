@@ -36,7 +36,7 @@ RUN printf '#!/bin/sh\nexec java -cp /opt/verapdf/verapdf.jar org.verapdf.apps.G
 # ---------------------------------------------------------------------------
 # Node bewusst nicht über ARG BASE_IMAGE: es gibt kein DHI-Node-Äquivalent;
 # diese Stage läuft nur im Build und landet nicht im Runtime-Image.
-FROM node:22-slim AS frontend-builder
+FROM node:26-slim AS frontend-builder
 
 WORKDIR /build
 COPY package.json package-lock.json ./
