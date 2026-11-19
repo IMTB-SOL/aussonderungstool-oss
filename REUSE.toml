@@ -5,7 +5,7 @@
 version = 1
 SPDX-PackageName = "Aussonderungstool"
 SPDX-PackageSupplier = "IMTB Solutions GmbH"
-SPDX-PackageDownloadLocation = "https://github.com/IMTB-SOL/aussonderungstool"
+SPDX-PackageDownloadLocation = "https://github.com/IMTB-SOL/aussonderungstool-oss"
 
 [[annotations]]
 path = "**"

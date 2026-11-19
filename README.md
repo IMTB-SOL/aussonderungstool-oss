@@ -61,8 +61,8 @@ Details: [docs/architektur.md](./docs/architektur.md)
 ## Installation (Container)
 
 ```bash
-git clone https://github.com/IMTB-SOL/aussonderungstool.git
-cd aussonderungstool
+git clone https://github.com/IMTB-SOL/aussonderungstool-oss.git
+cd aussonderungstool-oss
 cp .env.example .env
 ```
 
