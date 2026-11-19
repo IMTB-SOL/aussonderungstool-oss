@@ -28,7 +28,7 @@ python-pptx<1
 pytesseract
 img2pdf
 ocrmypdf
-openai<2
+openai<4
 httpx
 python-dotenv
 anyio
